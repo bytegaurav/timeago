@@ -1,0 +1,42 @@
+{
+  "name": "timeago",
+  "version": "1.0.0",
+  "description": "Converts javascript time to simple english statements ",
+  "main": "dist/index.js",
+  "browser": {
+    "colors": false,
+    "events": "eventemitter3",
+    "checkForModuleDuplicates": false,
+    "url": "./shims/url",
+    "tracer": false
+  },
+  "scripts": {
+    "prebuild": "rimraf dist",
+    "build": "npm-run-all --parallel build:*",
+    "build:main": "babel src --out-dir dist --ignore \"src/**/*.spec.js\",\"src/**/*.test.js\"",
+    "build:umd": "webpack --output-filename index.umd.js --mode development",
+    "build:umd.min": "webpack --output-filename index.umd.min.js --mode production",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/bytegaurav/timeago.git"
+  },
+  "author": "Gaurav Kushwaha",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/bytegaurav/timeago/issues"
+  },
+  "homepage": "https://github.com/bytegaurav/timeago#readme",
+  "devDependencies": {
+    "@babel/cli": "^7.6.0",
+    "@babel/core": "^7.6.0",
+    "@babel/preset-env": "^7.6.0",
+    "babel-loader": "^8.0.6",
+    "eslint": "^6.4.0",
+    "npm-run-all": "^4.1.5",
+    "rimraf": "^3.0.0",
+    "webpack": "^4.40.2",
+    "webpack-cli": "^3.3.9"
+  }
+}
